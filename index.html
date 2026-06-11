@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GeoInsight Enterprise — From Satellite to Watershed</title>
+<link rel="stylesheet" href="styles.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <!-- Intro splash -->
+  <div id="intro">
+    <div class="intro-card">
+      <div class="logo-row">
+        <div class="logo-chip"><img src="assets/gielogo.png" alt="GeoInsight Enterprise" /></div>
+        <div>
+          <h1>GeoInsight <span>Enterprise</span></h1>
+          <p class="tagline">Seeing Earth · Understanding Water</p>
+        </div>
+      </div>
+      <h2>🛰️ From Satellite to Watershed 💧</h2>
+      <p class="intro-text">
+        An interactive 3D journey for <b>beginners in Remote Sensing &amp; Hydrology</b>.
+        Follow elevation data from a satellite in orbit all the way to a
+        <b>Digital Elevation Model</b>, watch GIS <b>fill the sinks</b>, and discover
+        <b>watersheds</b> — then test yourself with a mini-quiz!
+      </p>
+      <ul class="intro-steps">
+        <li>🛰️ What is remote sensing?</li>
+        <li>🌈 Passive vs active sensors</li>
+        <li>📡 Laser pulses &amp; point clouds</li>
+        <li>🧮 Points → raster grid</li>
+        <li>🗺️ Explore the DEM (hover!)</li>
+        <li>🕳️ Sinks trap the water</li>
+        <li>🚰 Fill the sinks (you control it!)</li>
+        <li>➡️ Flow direction — click to trace</li>
+        <li>🌊 Streams from accumulation</li>
+        <li>⛰️ Watersheds — click a basin!</li>
+      </ul>
+      <button id="startBtn">Start the Journey ▶</button>
+      <p class="intro-foot">Use ◀ ▶ to move between steps · drag to rotate · scroll to zoom</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="brand" class="hidden">
+    <div class="logo-chip small"><img src="assets/gielogo.png" alt="GIE" /></div>
+    <span>GeoInsight <b>Enterprise</b></span>
+  </header>
+
+  <!-- Narration panel -->
+  <div id="panel" class="hidden">
+    <div class="panel-top">
+      <span id="stageBadge" class="badge">Step 1 of 11</span>
+      <h3 id="stageTitle">What is Remote Sensing?</h3>
+    </div>
+    <p id="stageText"></p>
+    <p id="stageTip" class="tip"></p>
+    <div id="interact"></div>
+    <div class="controls">
+      <button id="prevBtn" title="Previous step">◀ Back</button>
+      <div id="dots"></div>
+      <button id="nextBtn" title="Next step">Next ▶</button>
+    </div>
+    <div class="panel-foot">
+      <label class="autoplay"><input type="checkbox" id="autoChk" /> Auto-play</label>
+      <span id="keyhint">⌨️ ← → keys work too</span>
+    </div>
+  </div>
+
+  <!-- 3D hover tooltip -->
+  <div id="tooltip" class="hidden"></div>
+
+  <!-- Quiz overlay -->
+  <div id="quiz" class="hidden">
+    <div class="quiz-card">
+      <div class="logo-chip small center"><img src="assets/gielogo.png" alt="GIE" /></div>
+      <h2>🎓 Check Your Understanding</h2>
+      <div id="quizBody"></div>
+    </div>
+  </div>
+
+  <div id="hint" class="hidden">🖱️ Drag to rotate · Scroll to zoom</div>
+  <footer id="foot" class="hidden">© GeoInsight Enterprise — Beginner training: Remote Sensing &amp; Hydrology</footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
